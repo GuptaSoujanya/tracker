@@ -41,15 +41,15 @@ export function MilestonesProgress() {
   };
 
   return (
-    <Card className="glass border-neutral-800/50 hover:border-target-500/30 transition-all duration-300">
+    <Card className="glass border-white/40 hover:border-target-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-xl font-bold text-white flex items-center gap-2">
+            <CardTitle className="text-xl font-bold text-neutral-50 flex items-center gap-2">
               <Target className="h-5 w-5 text-target-500" />
               Milestones Progress
             </CardTitle>
-            <CardDescription className="text-neutral-400 mt-1">
+            <CardDescription className="text-neutral-600 mt-1">
               Track your goals and targets
             </CardDescription>
           </div>
@@ -65,15 +65,15 @@ export function MilestonesProgress() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <p className="text-sm font-medium text-white">{milestone.name}</p>
+                    <p className="text-sm font-medium text-neutral-50">{milestone.name}</p>
                     <Badge className={getStatusColor(milestone.status)}>
                       {milestone.status === "on-track" ? "On Track" : 
                        milestone.status === "at-risk" ? "At Risk" : "Completed"}
                     </Badge>
                   </div>
-                  <p className="text-xs text-neutral-500">Target: {milestone.target}</p>
+                  <p className="text-xs text-neutral-600">Target: {milestone.target}</p>
                 </div>
-                <span className="text-sm font-bold text-white ml-4">{milestone.progress}%</span>
+                <span className="text-sm font-bold text-neutral-50 ml-4">{milestone.progress}%</span>
               </div>
               <div className="relative h-2 bg-neutral-800 rounded-full overflow-hidden">
                 <div

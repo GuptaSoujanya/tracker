@@ -15,6 +15,8 @@ import {
   Moon,
   Sun,
   Zap,
+  Brain,
+  Calculator,
 } from "lucide-react";
 
 interface NavItem {
@@ -29,6 +31,8 @@ const navItems: NavItem[] = [
   { name: "Budget", href: "/buget", icon: Wallet },
   { name: "Todo", href: "/Todo", icon: CheckSquare },
   { name: "Milestones", href: "/Milestones", icon: Target },
+  { name: "AI Insights", href: "/ai-insights", icon: Brain },
+  { name: "Nutrition", href: "/nutrition", icon: Calculator },
 ];
 
 export default function Navbar() {
@@ -65,9 +69,13 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-neutral-950/85 backdrop-blur-xl border-b border-primary-500/15 shadow-lg shadow-primary-500/5"
-            : "bg-neutral-950/70 backdrop-blur-md border-b border-neutral-800/40"
+            ? "bg-white/90 backdrop-blur-2xl border-b border-white/60 shadow-xl shadow-neutral-200/50"
+            : "bg-white/70 backdrop-blur-xl border-b border-white/40 shadow-lg shadow-neutral-100/30"
         }`}
+        style={{
+          backdropFilter: isScrolled ? 'blur(40px) saturate(200%) brightness(1.1)' : 'blur(30px) saturate(180%)',
+          WebkitBackdropFilter: isScrolled ? 'blur(40px) saturate(200%) brightness(1.1)' : 'blur(30px) saturate(180%)',
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -79,34 +87,34 @@ export default function Navbar() {
               {/* Modern Logo */}
               <div className="relative">
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-secondary-500 to-info-500 rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-secondary-400 to-info-400 rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-all duration-500" />
                 
-                {/* Logo container */}
-                <div className="relative bg-gradient-to-br from-primary-600 via-secondary-600 to-info-600 p-2.5 rounded-xl shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-primary-400/20">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl" />
-                  <Zap className="h-6 w-6 text-white relative z-10 group-hover:rotate-12 transition-transform duration-500" />
+                {/* Logo container with glassmorphism */}
+                <div className="relative glass-light p-2.5 rounded-xl shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-primary-200">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl opacity-50" />
+                  <Zap className="h-6 w-6 text-primary-600 relative z-10 group-hover:rotate-12 transition-transform duration-500" />
                 </div>
                 
                 {/* Decorative dots */}
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-success-500 rounded-full animate-pulse" />
-                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-warning-500 rounded-full animate-pulse delay-300" />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-success-400 rounded-full animate-pulse shadow-sm" />
+                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-warning-400 rounded-full animate-pulse delay-300 shadow-sm" />
               </div>
               
               {/* Brand Name & Title */}
               <div className="flex flex-col">
                 <div className="flex items-center gap-2">
-                  <span className="text-2xl bg-gradient-to-r from-primary-400 via-secondary-400 to-info-400 bg-clip-text group-hover:from-primary-300 group-hover:via-secondary-300 group-hover:to-info-300 transition-all duration-300">
+                  <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 via-secondary-600 to-info-600 bg-clip-text group-hover:from-primary-700 group-hover:via-secondary-700 group-hover:to-info-700 transition-all duration-300">
                     Tracker
                   </span>
-                  <div className="h-1 w-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-8 transition-all duration-500" />
+                  <div className="h-1 w-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-8 transition-all duration-500 shadow-sm" />
                 </div>
-                <span className="text-xs font-medium text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 tracking-wide">
+                <span className="text-xs font-medium text-neutral-600 group-hover:text-primary-600 transition-colors duration-300 tracking-wide">
                   Activity & Budget Dashboard
                 </span>
               </div>
               
               {/* Bottom accent line */}
-              <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 shadow-sm" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -124,49 +132,52 @@ export default function Navbar() {
                     <div
                       className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 ${
                         isActive
-                          ? "text-white"
-                          : "text-neutral-400 hover:text-white"
+                          ? "text-primary-900"
+                          : "text-primary-600 hover:text-primary-700"
                       }`}
                     >
-                      {/* Active background with glow */}
+                      {/* Active background with light gradient for visibility */}
                       {isActive && (
                         <>
-                          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl" />
-                          <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl blur-xl opacity-60 animate-pulse" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl shadow-md border border-primary-200" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary-200/50 to-secondary-200/50 rounded-xl blur-md" />
                         </>
                       )}
 
-                      {/* Hover effect */}
+                      {/* Hover effect with glassmorphism */}
                       {!isActive && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary-600/0 to-secondary-600/0 group-hover:from-primary-600/20 group-hover:to-secondary-600/20 rounded-xl transition-all duration-300" />
+                        <div className="absolute inset-0 glass-light rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 border border-primary-200" />
                       )}
 
                       {/* Icon with background */}
                       <div className={cn(
-                        "relative p-1.5 rounded-lg transition-all duration-300",
+                        "relative p-1.5 rounded-lg transition-all duration-300 shadow-sm",
                         isActive 
-                          ? "bg-white/10" 
-                          : "bg-neutral-800/50 group-hover:bg-neutral-700/50"
+                          ? "bg-primary-200 shadow-md" 
+                          : "bg-white/80 group-hover:bg-white group-hover:shadow-md"
                       )}>
                         <Icon
                           className={cn(
                             "h-4 w-4 transition-transform duration-300 relative z-10",
                             isActive
-                              ? "scale-110"
-                              : "group-hover:scale-110"
+                              ? "scale-110 text-primary-700"
+                              : "group-hover:scale-110 text-primary-600"
                           )}
                         />
                       </div>
                       
                       {/* Label */}
-                      <span className="relative z-10 font-medium text-sm">
+                      <span className={cn(
+                        "relative z-10 font-bold text-sm",
+                        isActive ? "text-primary-900" : ""
+                      )}>
                         {item.name}
                       </span>
                     </div>
 
                     {/* Bottom indicator */}
                     {isActive && (
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent" />
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-primary-600 shadow-sm" />
                     )}
                   </Link>
                 );
@@ -196,18 +207,18 @@ export default function Navbar() {
                 </div>
               </button> */}
 
-              {/* Mobile menu button - Modern design */}
+              {/* Mobile menu button - Modern glassmorphism */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden relative group"
                 aria-label="Toggle menu"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-xl blur group-hover:blur-md transition-all duration-300 opacity-0 group-hover:opacity-100" />
-                <div className="relative p-2.5 rounded-xl bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700/50 hover:border-primary-500/50 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm" />
+                <div className="relative glass-light p-2.5 rounded-xl border border-neutral-200 hover:border-primary-300 transition-all duration-300 shadow-md hover:shadow-lg">
                   {isMobileMenuOpen ? (
-                    <X className="h-6 w-6 text-primary-400 transition-transform duration-300 rotate-90" />
+                    <X className="h-6 w-6 text-primary-600 transition-transform duration-300 rotate-90" />
                   ) : (
-                    <Menu className="h-6 w-6 text-primary-400 group-hover:scale-110 transition-transform duration-300" />
+                    <Menu className="h-6 w-6 text-neutral-700 group-hover:text-primary-600 group-hover:scale-110 transition-all duration-300" />
                   )}
                 </div>
               </button>
@@ -223,7 +234,7 @@ export default function Navbar() {
               : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
-          <div className="px-4 py-6 space-y-3 bg-neutral-900/95 backdrop-blur-xl border-t border-neutral-800/50">
+          <div className="px-4 py-6 space-y-3 glass backdrop-blur-xl border-t border-neutral-200 shadow-lg">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href;
@@ -236,37 +247,40 @@ export default function Navbar() {
                   className="relative group block"
                 >
                   <div
-                    className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 ${
+                    className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 shadow-md ${
                       isActive
-                        ? "text-white bg-gradient-to-r from-primary-600 to-secondary-600 shadow-lg shadow-primary-500/20"
-                        : "text-neutral-400 hover:text-white hover:bg-neutral-800/70"
+                        ? "text-primary-900 bg-gradient-to-r from-primary-100 to-secondary-100 shadow-lg border border-primary-200"
+                        : "text-neutral-700 hover:text-neutral-900 glass-light hover:shadow-lg"
                     }`}
                   >
                     {isActive && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl blur-md opacity-50 -z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary-200/50 to-secondary-200/50 rounded-xl blur-md -z-10" />
                     )}
                     
                     {/* Icon with background */}
                     <div className={cn(
-                      "p-2 rounded-lg transition-all duration-300",
+                      "p-2 rounded-lg transition-all duration-300 shadow-sm",
                       isActive 
-                        ? "bg-white/10" 
-                        : "bg-neutral-800/50 group-hover:bg-neutral-700/50"
+                        ? "bg-primary-200 shadow-md" 
+                        : "bg-white/80 group-hover:bg-white group-hover:shadow-md"
                     )}>
                       <Icon
                         className={`h-5 w-5 ${
-                          isActive ? "scale-110" : "group-hover:scale-110"
+                          isActive ? "scale-110 text-primary-700" : "group-hover:scale-110 text-primary-600"
                         } transition-transform duration-300`}
                       />
                     </div>
                     
-                    <span className="font-medium flex-1">{item.name}</span>
+                    <span className={cn(
+                      "font-bold flex-1",
+                      isActive ? "text-primary-900" : ""
+                    )}>{item.name}</span>
                     
                     {isActive && (
                       <div className="flex items-center gap-1">
-                        <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                        <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-100" />
-                        <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-200" />
+                        <div className="w-1.5 h-1.5 bg-primary-600 rounded-full animate-pulse shadow-sm" />
+                        <div className="w-1.5 h-1.5 bg-primary-600 rounded-full animate-pulse delay-100 shadow-sm" />
+                        <div className="w-1.5 h-1.5 bg-primary-600 rounded-full animate-pulse delay-200 shadow-sm" />
                       </div>
                     )}
                   </div>
@@ -280,11 +294,11 @@ export default function Navbar() {
       {/* Spacer to prevent content from going under the fixed navbar */}
       <div className="h-16" />
 
-      {/* Animated background gradient */}
+      {/* Animated background gradient - Light mode */}
       <div className="fixed top-0 left-0 right-0 h-64 pointer-events-none overflow-hidden -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-20 left-1/2 w-96 h-96 bg-info-600/20 rounded-full blur-3xl animate-pulse delay-500" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-200/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-secondary-200/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-20 left-1/2 w-96 h-96 bg-info-200/20 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
     </>
   );

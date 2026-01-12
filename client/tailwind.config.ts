@@ -216,20 +216,20 @@ const config: Config = {
           foreground: "#FFFFFF",
         },
         muted: {
-          DEFAULT: "#2A2A2A",
-          foreground: "#9CA3AF",
+          DEFAULT: "#F5F5F5",
+          foreground: "#737373",
         },
         destructive: {
           DEFAULT: "#F87171",
           foreground: "#FFFFFF",
         },
         popover: {
-          DEFAULT: "#1C1C1C",
-          foreground: "#FAFAFA",
+          DEFAULT: "#FFFFFF",
+          foreground: "#1C1C1C",
         },
         card: {
-          DEFAULT: "#1C1C1C",
-          foreground: "#FAFAFA",
+          DEFAULT: "#FFFFFF",
+          foreground: "#1C1C1C",
         },
       },
       fontWeight: {

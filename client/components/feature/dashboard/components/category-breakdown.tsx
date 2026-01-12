@@ -28,13 +28,13 @@ const chartConfig = {
 
 export function CategoryBreakdown() {
   return (
-    <Card className="glass border-neutral-800/50 hover:border-budget-500/30 transition-all duration-300">
+    <Card className="glass border-white/40 hover:border-budget-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
-        <CardTitle className="text-xl font-bold text-white flex items-center gap-2">
+        <CardTitle className="text-xl font-bold text-neutral-900 flex items-center gap-2">
           <TrendingUp className="h-5 w-5 text-budget-500" />
           Category Breakdown
         </CardTitle>
-        <CardDescription className="text-neutral-400">
+        <CardDescription className="text-neutral-600">
           Spending by category this month
         </CardDescription>
       </CardHeader>

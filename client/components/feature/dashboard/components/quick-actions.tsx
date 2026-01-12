@@ -51,13 +51,13 @@ const quickActions: QuickAction[] = [
 
 export function QuickActions() {
   return (
-    <Card className="glass border-neutral-800/50 hover:border-primary-500/30 transition-all duration-300">
+    <Card className="glass border-white/40 hover:border-primary-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
-        <CardTitle className="text-xl font-bold text-white flex items-center gap-2">
+        <CardTitle className="text-xl font-bold text-neutral-900 flex items-center gap-2">
           <Plus className="h-5 w-5 text-primary-500" />
           Quick Actions
         </CardTitle>
-        <CardDescription className="text-neutral-400">
+        <CardDescription className="text-neutral-600">
           Frequently used actions
         </CardDescription>
       </CardHeader>
@@ -69,16 +69,16 @@ export function QuickActions() {
               <button
                 key={action.id}
                 onClick={() => window.location.href = action.href}
-                className="relative group p-4 rounded-xl bg-neutral-900/50 hover:bg-neutral-800/50 border border-neutral-800/50 hover:border-neutral-700/50 transition-all duration-300 text-left overflow-hidden"
+                className="relative group p-4 rounded-xl glass-light hover:shadow-md border border-neutral-200 hover:border-neutral-300 transition-all duration-300 text-left overflow-hidden"
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${action.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                 <div className="relative flex items-center gap-3">
                   <div className={`p-2.5 rounded-lg bg-gradient-to-r ${action.color} shadow-lg`}>
-                    <Icon className="h-5 w-5 text-white" />
+                    <Icon className="h-5 w-5 text-neutral-900" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-white text-sm">{action.title}</p>
-                    <p className="text-xs text-neutral-500">{action.description}</p>
+                    <p className="font-medium text-neutral-900 text-sm">{action.title}</p>
+                    <p className="text-xs text-neutral-600">{action.description}</p>
                   </div>
                 </div>
               </button>

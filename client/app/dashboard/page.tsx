@@ -9,7 +9,9 @@ import {
   QuickActions,
   CategoryBreakdown,
   UpcomingDeadlines,
-  ActivityChart
+  ActivityChart,
+
+  DateTimeWidget
 } from '@/components/feature/dashboard'
 import { Wallet, Activity, Target, CheckSquare, TrendingUp, DollarSign } from 'lucide-react'
 
@@ -19,10 +21,10 @@ export default function DashboardPage() {
       <div className="max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="mb-8 animate-fade-in-up">
-          <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary-400 via-secondary-400 to-info-400 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary-600 via-secondary-600 to-info-600 bg-clip-text mb-2">
             Dashboard Overview
           </h1>
-          <p className="text-neutral-400 text-sm sm:text-base">Welcome back! Here's what's happening with your projects.</p>
+          <p className="text-neutral-600 text-sm sm:text-base">Welcome back! Here's what's happening with your projects.</p>
         </div>
 
         {/* Stats Grid */}
@@ -88,6 +90,12 @@ export default function DashboardPage() {
             <div className="animate-fade-in-up">
               <QuickActions />
             </div>
+
+            {/* Date Time Widget */}
+            <div className="animate-fade-in-up">
+              <DateTimeWidget />
+            </div>
+
 
             {/* Milestones Progress */}
             <div className="animate-fade-in-up">

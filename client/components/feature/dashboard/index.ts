@@ -6,4 +6,5 @@ export { QuickActions } from './components/quick-actions';
 export { CategoryBreakdown } from './components/category-breakdown';
 export { UpcomingDeadlines } from './components/upcoming-deadlines';
 export { ActivityChart } from './components/activity-chart';
+export { DateTimeWidget } from './components/datetime-widget';
 

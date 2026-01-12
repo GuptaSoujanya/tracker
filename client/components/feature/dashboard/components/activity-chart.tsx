@@ -29,13 +29,13 @@ const chartConfig = {
 
 export function ActivityChart() {
   return (
-    <Card className="glass border-neutral-800/50 hover:border-success-500/30 transition-all duration-300">
+    <Card className="glass border-white/40 hover:border-success-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
-        <CardTitle className="text-xl font-bold text-white flex items-center gap-2">
+        <CardTitle className="text-xl font-bold text-neutral-900 flex items-center gap-2">
           <Activity className="h-5 w-5 text-success-500" />
           Weekly Activity
         </CardTitle>
-        <CardDescription className="text-neutral-400">
+        <CardDescription className="text-neutral-600">
           Your productivity this week
         </CardDescription>
       </CardHeader>

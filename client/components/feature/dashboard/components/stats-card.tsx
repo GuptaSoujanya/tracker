@@ -36,24 +36,24 @@ export function StatsCard({
   return (
     <Card
       className={cn(
-        "glass border-neutral-800/50 hover:border-primary-500/30 transition-all duration-300 hover:scale-105 group",
+        "glass border-white/40 hover:border-primary-400 hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl group",
         className
       )}
     >
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-6">
-        <CardTitle className="text-sm font-medium text-neutral-400">
+        <CardTitle className="text-sm font-semibold text-neutral-700">
           {title}
         </CardTitle>
-        <div className={cn("p-2 rounded-lg bg-neutral-800/50 group-hover:scale-110 transition-transform duration-300", iconColor)}>
+        <div className={cn("p-2.5 rounded-xl glass-light group-hover:scale-110 transition-all duration-300 shadow-sm", iconColor)}>
           <Icon className="h-4 w-4" />
         </div>
       </CardHeader>
       <CardContent className="p-6 pt-0">
-        <div className="text-3xl font-bold text-white mb-2">{value}</div>
+        <div className="text-3xl font-bold text-neutral-900 mb-2">{value}</div>
         {change && (
           <Badge
             className={cn(
-              "text-xs font-medium border-0",
+              "text-xs font-semibold border shadow-sm",
               changeColors[changeType]
             )}
           >
@@ -61,7 +61,7 @@ export function StatsCard({
           </Badge>
         )}
         {description && (
-          <p className="text-xs text-neutral-500 mt-2">{description}</p>
+          <p className="text-xs text-neutral-600 mt-2">{description}</p>
         )}
       </CardContent>
     </Card>
