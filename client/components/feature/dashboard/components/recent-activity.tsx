@@ -21,7 +21,7 @@ const activities: Activity[] = [
   { id: "5", title: "Team Meeting Notes", status: "completed", time: "Yesterday", category: "Activity" },
 ];
 
-export function RecentActivity() {
+export const RecentActivity = React.memo(function RecentActivity() {
   const getStatusIcon = (status: Activity["status"]) => {
     switch (status) {
       case "completed":
@@ -80,5 +80,5 @@ export function RecentActivity() {
       </CardContent>
     </Card>
   );
-}
+});
 

@@ -23,7 +23,7 @@ const upcomingTasks: Task[] = [
   { id: "5", title: "Review expense reports", dueDate: "Jan 18, 11:00 AM", priority: "low", category: "Finance", isOverdue: false },
 ];
 
-export function UpcomingDeadlines() {
+export const UpcomingDeadlines = React.memo(function UpcomingDeadlines() {
   const getPriorityColor = (priority: Task["priority"]) => {
     switch (priority) {
       case "high":
@@ -91,5 +91,5 @@ export function UpcomingDeadlines() {
       </CardContent>
     </Card>
   );
-}
+});
 

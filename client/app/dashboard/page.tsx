@@ -14,11 +14,12 @@ import {
   DateTimeWidget
 } from '@/components/feature/dashboard'
 import { Wallet, Activity, Target, CheckSquare, TrendingUp, DollarSign } from 'lucide-react'
+import { LazyLoad } from '@/components/shared'
 
 export default function DashboardPage() {
   return (
     <div className="min-h-screen p-4 sm:p-6 lg:p-8">
-      <div className="max-w-[1600px] mx-auto">
+      <div className="max-w-[1800px] mx-auto">
         {/* Header */}
         <div className="mb-8 animate-fade-in-up">
           <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary-600 via-secondary-600 to-info-600 bg-clip-text mb-2">
@@ -67,45 +68,48 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {/* Left Column - 2/3 width */}
           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-            {/* Charts Row */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 animate-fade-in-up">
-              <BudgetOverview />
-              <CategoryBreakdown />
+            {/* Charts Row - Lazy Load */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
+              <LazyLoad minHeight="350px">
+                <BudgetOverview />
+              </LazyLoad>
+              <LazyLoad minHeight="350px">
+                <CategoryBreakdown />
+              </LazyLoad>
             </div>
 
-            {/* Activity Chart */}
-            <div className="animate-fade-in-up">
+            {/* Activity Chart - Lazy Load */}
+            <LazyLoad minHeight="300px">
               <ActivityChart />
-            </div>
+            </LazyLoad>
 
-            {/* Recent Activity */}
-            <div className="animate-fade-in-up">
+            {/* Recent Activity - Lazy Load */}
+            <LazyLoad minHeight="400px">
               <RecentActivity />
-            </div>
+            </LazyLoad>
           </div>
 
           {/* Right Column - 1/3 width */}
           <div className="space-y-4 sm:space-y-6">
-            {/* Quick Actions */}
-            <div className="animate-fade-in-up">
+            {/* Quick Actions - Lazy Load */}
+            <LazyLoad minHeight="300px">
               <QuickActions />
-            </div>
+            </LazyLoad>
 
-            {/* Date Time Widget */}
-            <div className="animate-fade-in-up">
+            {/* Date Time Widget - Lazy Load */}
+            <LazyLoad minHeight="200px">
               <DateTimeWidget />
-            </div>
+            </LazyLoad>
 
-
-            {/* Milestones Progress */}
-            <div className="animate-fade-in-up">
+            {/* Milestones Progress - Lazy Load */}
+            <LazyLoad minHeight="400px">
               <MilestonesProgress />
-            </div>
+            </LazyLoad>
 
-            {/* Upcoming Deadlines */}
-            <div className="animate-fade-in-up">
+            {/* Upcoming Deadlines - Lazy Load */}
+            <LazyLoad minHeight="400px">
               <UpcomingDeadlines />
-            </div>
+            </LazyLoad>
           </div>
         </div>
       </div>

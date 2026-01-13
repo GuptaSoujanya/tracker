@@ -1,16 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Clock } from "lucide-react";
 
-const today = new Date();
-const dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
-const date = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-const time = today.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+export const DateTimeWidget = React.memo(function DateTimeWidget() {
+  const { dayName, date, initialTime } = useMemo(() => {
+    const today = new Date();
+    return {
+      dayName: today.toLocaleDateString('en-US', { weekday: 'long' }),
+      date: today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      initialTime: today.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+    };
+  }, []);
 
-export function DateTimeWidget() {
-  const [currentTime, setCurrentTime] = React.useState(time);
+  const [currentTime, setCurrentTime] = React.useState(initialTime);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -49,5 +53,5 @@ export function DateTimeWidget() {
       </CardContent>
     </Card>
   );
-}
+});
 

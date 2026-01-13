@@ -26,7 +26,7 @@ const chartConfig = {
   },
 };
 
-export function CategoryBreakdown() {
+export const CategoryBreakdown = React.memo(function CategoryBreakdown() {
   return (
     <Card className="glass border-white/40 hover:border-budget-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
@@ -64,5 +64,5 @@ export function CategoryBreakdown() {
       </CardContent>
     </Card>
   );
-}
+});
 

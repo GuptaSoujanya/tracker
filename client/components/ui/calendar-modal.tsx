@@ -178,7 +178,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
             "active:scale-95",
             {
-              "bg-secondary-900 text-white hover:bg-secondary-800 shadow-md": isSelected,
+              "bg-secondary-900 text-primary-500 hover:bg-secondary-800 shadow-md": isSelected,
               "bg-gray-100 text-gray-700 font-semibold": isToday && !isSelected,
               "text-gray-400 cursor-not-allowed opacity-50 hover:bg-transparent hover:scale-100": isDisabled,
               "text-gray-700 hover:shadow-sm": !isSelected && !isToday && !isDisabled
@@ -256,10 +256,10 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                   <h3 className="text-lg font-semibold text-gray-700">Select Month & Year</h3>
                   <button
                     onClick={() => setShowMonthYearPicker(false)}
-                    className="text-sm px-3 py-1.5 ml-auto border border-gray-300 rounded hover:bg-gray-50 transition-colors text-gray-700 bg-secondary-900 text-white hover:bg-secondary-800"
+                    className="text-sm px-3 py-1.5 ml-auto border border-gray-300 rounded hover:bg-gray-50 transition-colors text-gray-700 bg-secondary-900 text-primary-500 hover:bg-secondary-800"
                   >
                     <span className="flex items-center gap-2">
-                      <ArrowLeftIcon className="h-4 w-4 text-white" />
+                      <ArrowLeftIcon className="h-4 w-4 text-primary-500" />
                       Back
                     </span>
                   </button>
@@ -280,7 +280,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                           <SelectItem 
                             key={index} 
                             value={index.toString()}
-                            className="hover:bg-secondary-900 hover:text-white focus:bg-secondary-900 text-secondary-900"
+                            className="hover:bg-secondary-900 hover:text-primary-500 focus:bg-secondary-900 text-secondary-900"
                           >
                             {month}
                           </SelectItem>
@@ -303,7 +303,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                           <SelectItem 
                             key={year} 
                             value={year.toString()}
-                            className="hover:bg-secondary-900 hover:text-white focus:bg-secondary-900 text-secondary-900"
+                            className="hover:bg-secondary-900 hover:text-primary-500 focus:bg-secondary-900 text-secondary-900"
                           >
                             {year}
                           </SelectItem>
@@ -314,7 +314,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                   
                   <button
                     onClick={() => setShowMonthYearPicker(false)}
-                    className="w-full mt-4 bg-secondary-900 hover:bg-secondary-800 text-white px-4 py-2 rounded-lg transition-colors"
+                    className="w-full mt-4 bg-secondary-900 hover:bg-secondary-800 text-primary-500 px-4 py-2 rounded-lg transition-colors"
                   >
                     Apply
                   </button>

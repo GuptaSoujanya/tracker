@@ -21,7 +21,7 @@ const milestones: Milestone[] = [
   { id: "4", name: "Cost Reduction", progress: 45, target: "20%", status: "on-track" },
 ];
 
-export function MilestonesProgress() {
+export const MilestonesProgress = React.memo(function MilestonesProgress() {
   const getStatusColor = (status: Milestone["status"]) => {
     switch (status) {
       case "on-track":
@@ -45,7 +45,7 @@ export function MilestonesProgress() {
       <CardHeader className="p-6">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-xl font-bold text-neutral-50 flex items-center gap-2">
+            <CardTitle className="text-xl font-bold text-primary-500 flex items-center gap-2">
               <Target className="h-5 w-5 text-target-500" />
               Milestones Progress
             </CardTitle>
@@ -87,5 +87,5 @@ export function MilestonesProgress() {
       </CardContent>
     </Card>
   );
-}
+});
 

@@ -17,7 +17,7 @@ Tracker/
 
 - Node.js 18+ 
 - npm or yarn
-- MongoDB (for server)
+- Supabase account (for PostgreSQL database) - [Sign up free](https://supabase.com)
 
 ### Installation
 
@@ -43,13 +43,22 @@ npm install
 # Server
 cd server
 cp .env.example .env
-# Edit .env with your configuration
+# Edit .env with your Supabase credentials
+# Get your keys from: https://supabase.com/dashboard → Your Project → Settings → API
 
 # AI Service
 cd ../ai
 cp .env.example .env
 # Edit .env with your API keys
 ```
+
+**Getting Supabase Keys:**
+1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
+2. Create/select a project
+3. Navigate to **Settings** → **API**
+4. Copy:
+   - **Project URL** → `SUPABASE_URL`
+   - **anon/public key** → `SUPABASE_ANON_KEY`
 
 3. **Run the applications:**
 
@@ -70,7 +79,7 @@ npm run dev
 ## Architecture
 
 - **Client**: Next.js 15 with React, TypeScript, and Tailwind CSS
-- **Server**: Express.js with TypeScript, MongoDB
+- **Server**: Express.js with TypeScript, Supabase (PostgreSQL)
 - **AI**: Express.js with TypeScript, OpenAI integration
 
 ## Development

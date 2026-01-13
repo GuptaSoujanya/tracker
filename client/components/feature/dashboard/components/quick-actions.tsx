@@ -49,7 +49,7 @@ const quickActions: QuickAction[] = [
   },
 ];
 
-export function QuickActions() {
+export const QuickActions = React.memo(function QuickActions() {
   return (
     <Card className="glass border-white/40 hover:border-primary-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
@@ -88,5 +88,5 @@ export function QuickActions() {
       </CardContent>
     </Card>
   );
-}
+});
 

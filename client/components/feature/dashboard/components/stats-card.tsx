@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ interface StatsCardProps {
   className?: string;
 }
 
-export function StatsCard({
+export const StatsCard = React.memo(function StatsCard({
   title,
   value,
   change,
@@ -27,11 +27,11 @@ export function StatsCard({
   description,
   className,
 }: StatsCardProps) {
-  const changeColors = {
+  const changeColors = useMemo(() => ({
     positive: "text-success-400 bg-success-500/10",
     negative: "text-danger-400 bg-danger-500/10",
     neutral: "text-info-400 bg-info-500/10",
-  };
+  }), []);
 
   return (
     <Card
@@ -66,5 +66,5 @@ export function StatsCard({
       </CardContent>
     </Card>
   );
-}
+});
 

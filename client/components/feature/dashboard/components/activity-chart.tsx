@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { Line, LineChart, CartesianGrid, XAxis, YAxis } from "recharts";
@@ -27,7 +27,7 @@ const chartConfig = {
   },
 };
 
-export function ActivityChart() {
+export const ActivityChart = React.memo(function ActivityChart() {
   return (
     <Card className="glass border-white/40 hover:border-success-400 hover:shadow-2xl transition-all duration-300">
       <CardHeader className="p-6">
@@ -90,5 +90,5 @@ export function ActivityChart() {
       </CardContent>
     </Card>
   );
-}
+});
 
