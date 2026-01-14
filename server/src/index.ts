@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { initializeSupabase, testSupabaseConnection } from './config/database';
 import activityRoutes from './routes/activityRoutes';
 import activityLogRoutes from './routes/activityLogRoutes';
+import budgetRoutes from './routes/budgetRoutes';
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.get('/', (req: Request, res: Response) => {
       health: '/health',
       activities: '/api/activities',
       activityLogs: '/api/activity-logs',
+      budgets: '/api/budgets',
     },
   });
 });
@@ -50,6 +52,7 @@ app.get('/health', async (req: Request, res: Response) => {
 
 app.use('/api/activities', activityRoutes);
 app.use('/api/activity-logs', activityLogRoutes);
+app.use('/api/budgets', budgetRoutes);
 
 app.listen(port, () => {
   // Server started

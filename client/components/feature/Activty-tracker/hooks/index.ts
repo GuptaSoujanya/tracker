@@ -32,7 +32,7 @@ export const useActivityTracker = () => {
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
-    try {
+      try {
       const [activitiesData, logsData] = await Promise.all([
         activityAPI.getActivities(),
         activityAPI.getActivityLogs({
@@ -45,9 +45,9 @@ export const useActivityTracker = () => {
       setLogs(logsData.map(mapAPILogToClient));
     } catch (err: any) {
       setError(err.message || 'Failed to load data');
-    } finally {
-      setIsLoading(false);
-    }
+      } finally {
+        setIsLoading(false);
+      }
   }, [currentMonth, currentYear]);
 
   useEffect(() => {
@@ -83,9 +83,9 @@ export const useActivityTracker = () => {
     try {
       setError(null);
       const newActivity = await activityAPI.createActivity({
-        name,
-        description,
-        color,
+      name,
+      description,
+      color,
       });
       setActivities(prev => [...prev, mapAPIActivityToClient(newActivity)]);
     } catch (err: any) {
@@ -98,8 +98,8 @@ export const useActivityTracker = () => {
     try {
       setError(null);
       await activityAPI.deleteActivity(activityId);
-      setActivities(prev => prev.filter(a => a.id !== activityId));
-      setLogs(prev => prev.filter(l => l.activityId !== activityId));
+    setActivities(prev => prev.filter(a => a.id !== activityId));
+    setLogs(prev => prev.filter(l => l.activityId !== activityId));
     } catch (err: any) {
       setError(err.message || 'Failed to delete activity');
       throw err;
@@ -110,19 +110,19 @@ export const useActivityTracker = () => {
     try {
       setError(null);
       const updatedLog = await activityAPI.toggleActivityLog(activityId, date);
-      setLogs(prev => {
+    setLogs(prev => {
         const existingIndex = prev.findIndex(
-          l => l.activityId === activityId && l.date === date
-        );
+        l => l.activityId === activityId && l.date === date
+      );
 
         if (existingIndex >= 0) {
           return prev.map((l, idx) =>
             idx === existingIndex ? mapAPILogToClient(updatedLog) : l
-          );
-        } else {
+        );
+      } else {
           return [...prev, mapAPILogToClient(updatedLog)];
-        }
-      });
+      }
+    });
     } catch (err: any) {
       setError(err.message || 'Failed to update activity log');
       throw err;

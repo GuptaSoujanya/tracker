@@ -29,24 +29,24 @@ export function AddActivityModal({ activityCount, activities, onAdd }: AddActivi
     setIsLoading(true);
 
     try {
-      // Check for duplicates (case-insensitive)
-      const isDuplicate = activities.some(
-        (activity) => activity.name.toLowerCase().trim() === activityName.toLowerCase().trim()
-      );
+    // Check for duplicates (case-insensitive)
+    const isDuplicate = activities.some(
+      (activity) => activity.name.toLowerCase().trim() === activityName.toLowerCase().trim()
+    );
 
-      if (isDuplicate) {
-        setError("This activity already exists!");
+    if (isDuplicate) {
+      setError("This activity already exists!");
         setIsLoading(false);
-        return;
-      }
+      return;
+    }
 
-      if (activityName.trim()) {
-        const color = getActivityColor(activityCount);
+    if (activityName.trim()) {
+      const color = getActivityColor(activityCount);
         await onAdd(activityName.trim(), activityDesc.trim(), color);
-        setActivityName("");
-        setActivityDesc("");
-        setError("");
-        setOpen(false);
+      setActivityName("");
+      setActivityDesc("");
+      setError("");
+      setOpen(false);
       }
     } catch (err: any) {
       setError(err.message || "Failed to create activity. Please try again.");

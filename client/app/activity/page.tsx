@@ -122,12 +122,12 @@ export default function ActivityPage() {
         <div className="mb-6 animate-fade-in-up">
           <div className="flex items-center justify-between mb-2">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-primary-700 mb-2">
-                Activity Tracker
-              </h1>
-              <p className="text-neutral-600 text-sm sm:text-base">
-                Track your daily activities and build consistent habits
-              </p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-primary-700 mb-2">
+            Activity Tracker
+          </h1>
+          <p className="text-neutral-600 text-sm sm:text-base">
+            Track your daily activities and build consistent habits
+          </p>
             </div>
             <Button
               onClick={refreshData}
